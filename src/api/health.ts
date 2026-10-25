@@ -49,7 +49,7 @@ export const listHealthRecords = async (
   const response = await api.get<{
     success: boolean;
     data?: Record<string, unknown>[];
-  }>(`/health/business/${businessId}`);
+  }>(`/farm-health/business/${businessId}`);
 
   return (response.data.data ?? []).map(normalizeHealthRecord);
 };
@@ -62,7 +62,7 @@ export const createHealthRecord = async (
     success: boolean;
     message?: string;
     data?: Record<string, unknown>;
-  }>("/health", { businessId, ...input });
+  }>("/farm-health", { businessId, ...input });
 
   const data = response.data.data;
 
@@ -83,7 +83,7 @@ export const updateHealthRecord = async (
     success: boolean;
     message?: string;
     data?: Record<string, unknown>;
-  }>(`/health/${healthRecordId}`, input);
+  }>(`/farm-health/${healthRecordId}`, input);
 
   const data = response.data.data;
 
@@ -103,7 +103,7 @@ export const listHealthRecordsByFlock = async (
   const response = await api.get<{
     success: boolean;
     data?: Record<string, unknown>[];
-  }>(`/health/business/${businessId}/flock/${flockId}`);
+  }>(`/farm-health/business/${businessId}/flock/${flockId}`);
 
   return (response.data.data ?? []).map(normalizeHealthRecord);
 };
