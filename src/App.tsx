@@ -4,14 +4,14 @@ import { Loader2 } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PlaceholderPage } from "@/pages/placeholder-page";
 import DashboardPage from "@/pages/dashboard-page";
+import { CustomersPage } from "@/pages/sales/customers-page";
+import { OrdersPage } from "@/pages/sales/orders-page";
+import { DeliveriesPage } from "@/pages/sales/deliveries-page";
 import { useAuth } from "@/context/AuthContext";
 import { LoginPage } from "@/pages/auth/login-page";
 import { RegisterPage } from "@/pages/auth/register-page";
 
 const PLACEHOLDER_ROUTES: string[] = [
-  "/sales/customers",
-  "/sales/orders",
-  "/sales/deliveries",
   "/farm/flocks",
   "/farm/eggs",
   "/farm/health",
@@ -24,6 +24,12 @@ const PLACEHOLDER_ROUTES: string[] = [
   "/inventory/houses",
   "/finance/ledger",
   "/billing",
+];
+
+const REAL_ROUTES: { path: string; element: ReactNode }[] = [
+  { path: "/sales/customers", element: <CustomersPage /> },
+  { path: "/sales/orders", element: <OrdersPage /> },
+  { path: "/sales/deliveries", element: <DeliveriesPage /> },
 ];
 
 function FullPageSpinner(): ReactNode {
@@ -66,6 +72,9 @@ export default function App(): ReactNode {
       <Route path="/register" element={<RegisterPage />} />
       <Route element={<ProtectedLayout />}>
         <Route index element={<DashboardPage />} />
+        {REAL_ROUTES.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
         {PLACEHOLDER_ROUTES.map((route) => (
           <Route
             key={route}
