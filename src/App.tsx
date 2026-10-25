@@ -12,16 +12,16 @@ import { HousesPage } from "@/pages/inventory/houses-page";
 import { InventoryPage } from "@/pages/inventory/inventory-page";
 import { TransfersPage } from "@/pages/inventory/transfers-page";
 import { ProductsPage } from "@/pages/inventory/products-page";
+import { FlockPage } from "@/pages/farm/flock-page";
+import { EggProductionPage } from "@/pages/farm/egg-production-page";
+import { HealthPage } from "@/pages/farm/health-page";
+import { MedicationsPage } from "@/pages/farm/medications-page";
+import { FeedPage } from "@/pages/farm/feed-page";
 import { useAuth } from "@/context/AuthContext";
 import { LoginPage } from "@/pages/auth/login-page";
 import { RegisterPage } from "@/pages/auth/register-page";
 
 const PLACEHOLDER_ROUTES: string[] = [
-  "/farm/flocks",
-  "/farm/eggs",
-  "/farm/health",
-  "/farm/medications",
-  "/farm/feed",
   "/finance/ledger",
   "/billing",
 ];
@@ -35,6 +35,11 @@ const REAL_ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/inventory/houses", element: <HousesPage /> },
   { path: "/inventory/transfers", element: <TransfersPage /> },
   { path: "/inventory/products", element: <ProductsPage /> },
+  { path: "/farm/flocks", element: <FlockPage /> },
+  { path: "/farm/eggs", element: <EggProductionPage /> },
+  { path: "/farm/health", element: <HealthPage /> },
+  { path: "/farm/medications", element: <MedicationsPage /> },
+  { path: "/farm/feed", element: <FeedPage /> },
 ];
 
 function FullPageSpinner(): ReactNode {

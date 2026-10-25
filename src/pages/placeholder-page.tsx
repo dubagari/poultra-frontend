@@ -27,11 +27,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 const MODULE_LABELS: Record<string, string> = {
-  "/farm/flocks": "Flocks",
-  "/farm/eggs": "Egg production",
-  "/farm/health": "Health records",
-  "/farm/medications": "Medications",
-  "/farm/feed": "Feed formulations",
   "/finance/ledger": "Finance ledger",
   "/billing": "Billing",
 };
