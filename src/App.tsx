@@ -7,6 +7,11 @@ import DashboardPage from "@/pages/dashboard-page";
 import { CustomersPage } from "@/pages/sales/customers-page";
 import { OrdersPage } from "@/pages/sales/orders-page";
 import { DeliveriesPage } from "@/pages/sales/deliveries-page";
+import { LocationsPage } from "@/pages/inventory/locations-page";
+import { HousesPage } from "@/pages/inventory/houses-page";
+import { InventoryPage } from "@/pages/inventory/inventory-page";
+import { TransfersPage } from "@/pages/inventory/transfers-page";
+import { ProductsPage } from "@/pages/inventory/products-page";
 import { useAuth } from "@/context/AuthContext";
 import { LoginPage } from "@/pages/auth/login-page";
 import { RegisterPage } from "@/pages/auth/register-page";
@@ -17,11 +22,6 @@ const PLACEHOLDER_ROUTES: string[] = [
   "/farm/health",
   "/farm/medications",
   "/farm/feed",
-  "/inventory/products",
-  "/inventory/stock",
-  "/inventory/transfers",
-  "/inventory/locations",
-  "/inventory/houses",
   "/finance/ledger",
   "/billing",
 ];
@@ -30,6 +30,11 @@ const REAL_ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/sales/customers", element: <CustomersPage /> },
   { path: "/sales/orders", element: <OrdersPage /> },
   { path: "/sales/deliveries", element: <DeliveriesPage /> },
+  { path: "/inventory/stock", element: <InventoryPage /> },
+  { path: "/inventory/locations", element: <LocationsPage /> },
+  { path: "/inventory/houses", element: <HousesPage /> },
+  { path: "/inventory/transfers", element: <TransfersPage /> },
+  { path: "/inventory/products", element: <ProductsPage /> },
 ];
 
 function FullPageSpinner(): ReactNode {

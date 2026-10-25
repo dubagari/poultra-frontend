@@ -32,11 +32,6 @@ const MODULE_LABELS: Record<string, string> = {
   "/farm/health": "Health records",
   "/farm/medications": "Medications",
   "/farm/feed": "Feed formulations",
-  "/inventory/products": "Products",
-  "/inventory/stock": "Inventory",
-  "/inventory/transfers": "Stock transfers",
-  "/inventory/locations": "Locations",
-  "/inventory/houses": "Houses",
   "/finance/ledger": "Finance ledger",
   "/billing": "Billing",
 };
