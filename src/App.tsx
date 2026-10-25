@@ -17,14 +17,12 @@ import { EggProductionPage } from "@/pages/farm/egg-production-page";
 import { HealthPage } from "@/pages/farm/health-page";
 import { MedicationsPage } from "@/pages/farm/medications-page";
 import { FeedPage } from "@/pages/farm/feed-page";
+import { BillingPage } from "@/pages/billing-page";
 import { useAuth } from "@/context/AuthContext";
 import { LoginPage } from "@/pages/auth/login-page";
 import { RegisterPage } from "@/pages/auth/register-page";
 
-const PLACEHOLDER_ROUTES: string[] = [
-  "/finance/ledger",
-  "/billing",
-];
+const PLACEHOLDER_ROUTES: string[] = ["/finance/ledger"];
 
 const REAL_ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/sales/customers", element: <CustomersPage /> },
@@ -40,6 +38,7 @@ const REAL_ROUTES: { path: string; element: ReactNode }[] = [
   { path: "/farm/health", element: <HealthPage /> },
   { path: "/farm/medications", element: <MedicationsPage /> },
   { path: "/farm/feed", element: <FeedPage /> },
+  { path: "/billing", element: <BillingPage /> },
 ];
 
 function FullPageSpinner(): ReactNode {

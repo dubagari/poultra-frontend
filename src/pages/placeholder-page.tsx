@@ -28,7 +28,6 @@ import { Button } from "@/components/ui/button";
 
 const MODULE_LABELS: Record<string, string> = {
   "/finance/ledger": "Finance ledger",
-  "/billing": "Billing",
 };
 
 export function PlaceholderPage({ route }: { route: string }): ReactNode {
