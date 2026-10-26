@@ -17,6 +17,7 @@ export interface AuthUser {
   phone?: string;
   avatar?: string;
   status: string;
+  isPlatformAdmin?: boolean;
 }
 
 interface AuthContextValue {

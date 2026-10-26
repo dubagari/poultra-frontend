@@ -16,6 +16,7 @@ import {
   MapPin,
   Home,
   FlaskConical,
+  ShieldCheck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -31,6 +32,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/context/AuthContext";
 
 interface NavItem {
   title: string;
@@ -89,6 +91,8 @@ const NAV_GROUPS: NavGroup[] = [
 
 export function AppSidebar() {
   const location = useLocation();
+  const { user } = useAuth();
+  const isAdmin = user?.isPlatformAdmin === true;
 
   return (
     <Sidebar collapsible="icon">
@@ -105,8 +109,7 @@ export function AppSidebar() {
       <SidebarContent>
         {NAV_GROUPS.map((group) => (
           <SidebarGroup key={group.label}>
-            <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
-            <SidebarGroupContent>
+            <SidebarGroupLabel>{group.label}</SidebarGroupLabel>            <SidebarGroupContent>
               <SidebarMenu>
                 {group.items.map((item) => {
                   const active = location.pathname === item.url;
@@ -129,6 +132,29 @@ export function AppSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         ))}
+        {isAdmin ? (
+          <SidebarGroup>
+            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={location.pathname.startsWith("/admin")}
+                    className={cn(
+                      location.pathname.startsWith("/admin") && "font-medium"
+                    )}
+                  >
+                    <Link to="/admin">
+                      <ShieldCheck />
+                      <span>Admin</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ) : null}
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
